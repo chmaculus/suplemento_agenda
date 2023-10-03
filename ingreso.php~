@@ -1,0 +1,70 @@
+<?php
+include("connect.php");
+?>
+
+
+
+<form action="update.php" method="post" enctype="multipart/form-data">
+<table>
+<tr>
+	<td>Clase</td>
+	<td><input type="text" name="clase" value="a"></td>
+</tr>
+<tr>
+	<td>Tipo de clase</td>
+	<td>
+		<select name="tipo_clase">
+		<?php
+		$res=mysql_query("select * from frecuenciaclases");
+		if(mysql_error()){echo mysql_error();}
+		while($row=mysql_fetch_array($res)){
+			echo '<option value="'.$row["1"].'" label="'.$row["1"].'">'.$row["1"].'</option>';
+		}
+		?>
+		
+		</select>
+	</td>
+</tr>
+<tr>
+	<td>Frecuencia</td>
+	<td>
+		<select name="frecuencia">
+		<?php
+		$res=mysql_query("select * from frecuenciaclases");
+		if(mysql_error()){echo mysql_error();}
+		while($row=mysql_fetch_array($res)){
+			echo '<option value="'.$row["1"].'" label="'.$row["1"].'">'.$row["1"].'</option>';
+		}
+		?>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td>Publico destinado</td>
+	<td></td>
+</tr>
+</table>
+</form>
+
+
+<?php
+/*
+tabla clases
+tabla actividades
+tabla lista_precio_actividades
+tabla clases_vigencia
+tabla ocupacion
+tabla clases_horarios
+tabla lugares_actividad
+
+clase
+espacio donde se practica
+precios de la clase
+horarios
+capacidad x clase
+
+
+
+
+*/
+?>
