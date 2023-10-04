@@ -1,49 +1,46 @@
 <script type="application/javascript">
 	function validarFormulario() {
-		#----------------------------------------------------------
 		var selectInput = document.getElementById('tipo_contrato');
 		var selectedOption = selectInput.options[selectInput.selectedIndex].value;
 		if (selectedOption === '') {
 			alert('Seleccione una opción en tipo de clase');
 			return false;
 		}
-		#----------------------------------------------------------
 
-		#----------------------------------------------------------
-		var selectInput2 = document.getElementById('frecuencia');
-		var selectedOption2 = selectInput2.options[selectInput.selectedIndex].value;
-		if (selectedOption2 === '') {
+		var selectInput = document.getElementById('frecuencia');
+		var selectedOption = selectInput.options[selectInput.selectedIndex].value;
+		if (selectedOption === '') {
 			alert('Seleccione una opción en frecuencia');
 			return false;
 		}
-		#----------------------------------------------------------
 
-		#----------------------------------------------------------
-		var selectInput3 = document.getElementById('id_lugar');
-		var selectedOption3 = selectInput3.options[selectInput.selectedIndex].value;
-		if (selectedOption3 === '') {
+		var selectInput = document.getElementById('rango_edades');
+		var selectedOption = selectInput.options[selectInput.selectedIndex].value;
+		if (selectedOption === '') {
+			alert('Seleccione una opción en publico destinado');
+			return false;
+		}
+
+		var selectInput = document.getElementById('id_lugar');
+		var selectedOption = selectInput.options[selectInput.selectedIndex].value;
+		if (selectedOption === '') {
 			alert('Seleccione una opción en lugar');
 			return false;
 		}
-		#----------------------------------------------------------
 		
-		#----------------------------------------------------------
-		var selectInput4 = document.getElementById('desde');
-		var selectedOption4 = selectInput4.options[selectInput.selectedIndex].value;
-		if (selectedOption4 === '') {
+		var selectInput = document.getElementById('desde');
+		var selectedOption = selectInput.options[selectInput.selectedIndex].value;
+		if (selectedOption === '') {
 			alert('Seleccione una opción en hora desde');
 			return false;
 		}
-		#----------------------------------------------------------
 		
-		#----------------------------------------------------------
-		var selectInput5 = document.getElementById('hasta');
-		var selectedOption5 = selectInput5.options[selectInput.selectedIndex].value;
-		if (selectedOption5 === '') {
+		var selectInput = document.getElementById('hasta');
+		var selectedOption = selectInput.options[selectInput.selectedIndex].value;
+		if (selectedOption === '') {
 			alert('Seleccione una opción en hora hasta');
 			return false;
 		}
-		#----------------------------------------------------------
 		
 		// return true;
 	}
@@ -90,7 +87,7 @@ include("connect.php");
 		$res=mysql_query("select * from frecuenciaclases");
 		if(mysql_error()){echo mysql_error();}
 		while($row=mysql_fetch_array($res)){
-			echo '<option value="'.$row[1].'" label="'.$row[1].'">'.$row[1].'</option>';
+			echo '<option value="'.$row[0].'" label="'.$row[1].'"></option>';
 		}
 		?>
 		</select>
@@ -105,7 +102,7 @@ include("connect.php");
 		$res=mysql_query("select * from rango_edades");
 		if(mysql_error()){echo mysql_error();}
 		while($row=mysql_fetch_array($res)){
-			echo '<option value="'.$row[1].'" label="'.$row[1].'">'.$row[1].'</option>';
+			echo '<option value="'.$row[0].'" label="'.$row[1].'"></option>';
 		}
 		?>
 		</select>
@@ -159,27 +156,27 @@ include("connect.php");
 		</tr>
 		<tr>
 			<td>Martes</td>
-			<td><input type="checkbox" name="mar" value="2"></td>
+			<td><input type="checkbox" name="mar" value="1"></td>
 		</tr>
 		<tr>
 			<td>Miercoles</td>
-			<td><input type="checkbox" name="mie" value="3"></td>
+			<td><input type="checkbox" name="mie" value="1"></td>
 		</tr>
 		<tr>
 			<td>Jueves</td>
-			<td><input type="checkbox" name="jue" value="4"></td>
+			<td><input type="checkbox" name="jue" value="1"></td>
 		</tr>
 		<tr>
 			<td>Viernes</td>
-			<td><input type="checkbox" name="vie" value="5"></td>
+			<td><input type="checkbox" name="vie" value="1"></td>
 		</tr>
 		<tr>
 			<td>Sabado</td>
-			<td><input type="checkbox" name="sab" value="6"></td>
+			<td><input type="checkbox" name="sab" value="1"></td>
 		</tr>
 		<tr>
 			<td>Domingo</td>
-			<td><input type="checkbox" name="dom" value="7"></td>
+			<td><input type="checkbox" name="dom" value="1"></td>
 		</tr>
 		</table>
 
