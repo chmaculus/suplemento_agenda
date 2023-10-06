@@ -1,7 +1,7 @@
 <?php
 $server="localhost";
 $user="root";
-$passwd="maculuss";
+$passwd="";
 
 
 $base="agenda";

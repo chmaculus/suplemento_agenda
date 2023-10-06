@@ -49,6 +49,27 @@
 
 <?php
 include("connect.php");
+
+
+
+
+
+if($_GET["id_grilla"]){
+	$q='select * from grilla where id='.$_GET["id_grilla"];
+	$array_grilla=mysql_fetch_array(mysql_query($q));
+	$q='select * from clases where id='.array_grilla["id_clase"];
+	$array_clase=mysql_fetch_array(mysql_query($q));
+}
+
+
+
+
+
+
+
+
+
+
 ?>
 
 
@@ -67,16 +88,16 @@ include("connect.php");
 	<td>Tipo de clase</td>
 	<td>
 		<select name="tipo_contrato" id="tipo_contrato">
-		<option value="" label="">Seleccione tipo</option>
+		<option value="" label="" selected>Seleccione tipo</option>
 		<?php
 		$res=mysql_query("select * from tipo_contrato");
 		if(mysql_error()){echo mysql_error();}
 		while($row=mysql_fetch_array($res)){
-			if($row[0]==1){
-				echo '<option value="'.$row[0].'" label="'.$row[1].'" selected>'.$row[1].'</option>';	
-			}else{
+			// if($array_grilla[""]==$row[0]){
+				// echo '<option value="'.$row[0].'" label="'.$row[1].'" selected>'.$row[1].'</option>';
+			// }else{
 				echo '<option value="'.$row[0].'" label="'.$row[1].'">'.$row[1].'</option>';
-			}
+			// }
 			
 		}
 		?>
@@ -92,11 +113,7 @@ include("connect.php");
 		$res=mysql_query("select * from frecuenciaclases");
 		if(mysql_error()){echo mysql_error();}
 		while($row=mysql_fetch_array($res)){
-			if($row[0]==3){
-				echo '<option value="'.$row[0].'" label="'.$row[1].'" selected></option>';
-			}else{
-				echo '<option value="'.$row[0].'" label="'.$row[1].'"></option>';
-			}
+			echo '<option value="'.$row[0].'" label="'.$row[1].'"></option>';
 		}
 		?>
 		</select>

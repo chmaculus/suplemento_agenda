@@ -1,6 +1,15 @@
 <?php
 
 /*
+chequear consistencia
+
+resumen en update
+
+agregar modificacion
+agregar horario
+agregar precio
+
+
 tabla grilla
 tabla clases
 tabla actividades
@@ -18,25 +27,10 @@ capacidad x clase
 */
 
 
+
+
+
 $now=time();
-
-
-echo "clase: ".$_POST["clase"]."<br>";
-echo "tipo: ".$_POST["tipo_clase"]."<br>";
-echo "frecuencia: ".$_POST["frecuencia"]."<br>";
-echo "rango_edades: ".$_POST["rango_edades"]."<br>";
-echo "capacidad: ".$_POST["capacidad"]."<br>";
-echo "id_lugar: ".$_POST["id_lugar"]."<br>";
-echo "activada: ".$_POST["activada"]."<br>";
-echo "mostrar_asistencia: ".$_POST["mostrar_asistencia"]."<br>";
-echo "descripcion_precio: ".$_POST["descripcion_precio"]."<br>";
-echo "lun: ".$_POST["lun"]."<br>";
-echo "mar: ".$_POST["mar"]."<br>";
-echo "mie: ".$_POST["mie"]."<br>";
-echo "jue: ".$_POST["jue"]."<br>";
-echo "vie: ".$_POST["vie"]."<br>";
-echo "sab: ".$_POST["sab"]."<br>";
-echo "dom: ".$_POST["dom"]."<br>";
 
 
 include("connect.php");
@@ -109,7 +103,7 @@ $q='insert into clases set nombre="'.$_POST["clase"].'",
 			Subtitulo="Test",
 			parent=99999,
             vigencia_desde='.$now.',
-            vigencia_hasta='.($now+(60*60*24*365));
+            vigencia_hasta='.($now+(60*60*24*120));
 
 
 // echo "q33: ".$q."|<br>";
@@ -607,3 +601,9 @@ if(mysql_error()){echo mysql_error()."<br>";}
 
 
 ?>
+
+
+
+<table borde="1">
+
+</table>
