@@ -93,11 +93,11 @@ if($_GET["id_grilla"]){
 		$res=mysql_query("select * from tipo_contrato");
 		if(mysql_error()){echo mysql_error();}
 		while($row=mysql_fetch_array($res)){
-			// if($array_grilla[""]==$row[0]){
-				// echo '<option value="'.$row[0].'" label="'.$row[1].'" selected>'.$row[1].'</option>';
-			// }else{
+			if($array_clase["TipoID"]==$row[0]){
+				echo '<option value="'.$row[0].'" label="'.$row[1].'" selected>'.$row[1].'</option>';
+			}else{
 				echo '<option value="'.$row[0].'" label="'.$row[1].'">'.$row[1].'</option>';
-			// }
+			}
 			
 		}
 		?>
@@ -108,12 +108,17 @@ if($_GET["id_grilla"]){
 	<td>Frecuencia</td>
 	<td>
 		<select name="frecuencia" id="frecuencia">
-		<option value="" label="" selected>Seleccione frecuencia</option>
+		<option value="" label="">Seleccione frecuencia</option>
 		<?php
 		$res=mysql_query("select * from frecuenciaclases");
 		if(mysql_error()){echo mysql_error();}
 		while($row=mysql_fetch_array($res)){
-			echo '<option value="'.$row[0].'" label="'.$row[1].'"></option>';
+			if($array_clase["TipoID"]==$row[0]){
+				echo '<option value="'.$row[0].'" label="'.$row[1].'" selected></option>';
+			}else{
+				echo '<option value="'.$row[0].'" label="'.$row[1].'" ></option>';
+			}
+		}
 		}
 		?>
 		</select>
@@ -123,12 +128,17 @@ if($_GET["id_grilla"]){
 	<td>Publico destinado</td>
 	<td>
 		<select name="rango_edades" id="rango_edades">
-		<option value="" label="" selected  required="">Seleccione publico</option>
+		<option value="" label="">Seleccione publico</option>
 		<?php
 		$res=mysql_query("select * from rango_edades");
 		if(mysql_error()){echo mysql_error();}
 		while($row=mysql_fetch_array($res)){
-			echo '<option value="'.$row[0].'" label="'.$row[1].'"></option>';
+			if($array_clase["EdadID"]==$row[0]){
+				echo '<option value="'.$row[0].'" label="'.$row[1].'" selected></option>';
+			}else{
+				echo '<option value="'.$row[0].'" label="'.$row[1].'"></option>';
+			}
+			
 		}
 		?>
 		</select>
