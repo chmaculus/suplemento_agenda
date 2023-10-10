@@ -155,11 +155,12 @@ if($_GET["id_grilla"]){
 	<td>Lugar</td>
 	<td>
 		<select name="id_lugar" id="id_lugar">
-		<option value="" label="" selected>Seleccione lugar</option>
+		<option value="" label="">Seleccione lugar</option>
 		<?php
 		$res=mysql_query("select * from lugares where Activado_lugar=1 order by Lugar");
 		if(mysql_error()){echo "je: ".mysql_error();}
 		while($row=mysql_fetch_array($res)){
+			if($array_clase["EdadID"]==$row[0]){
 			echo '<option value="'.$row[0].'" label="'.$row[2].'">'.$row[2].'</option>';
 		}
 		?>

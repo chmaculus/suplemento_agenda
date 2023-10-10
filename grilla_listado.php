@@ -1,6 +1,7 @@
 <center>
 <?php
 include("connect.php");
+include("funciones.php");
 $query='select g.*,a.actividad, c.nombre, l.lugar from grilla g 
 	join actividades a on 
 	g.id_actividad=a.id
@@ -41,8 +42,8 @@ while($row=mysql_fetch_array($result)){
 	echo '<td>'.$row["creado"].'</td>';
 	echo '<td>'.$row["modificado"].'</td>';
 	echo '<td>'.$row["observacion"].'</td>';
-	echo '<td><A HREF="agregar_horario.php?id_clase='.$row["id"].'"><button>Agregar<br>Horario</button></A></td>';
-	echo '<td><A HREF="agregar_horario.php?id_clase='.$row["id"].'"><button>ver<br>Horarios</button></A></td>';
+	echo '<td><A HREF="agregar_horario.php?id_clase='.$row["id_clase"].'"><button>Agregar<br>Horario</button></A></td>';
+	echo '<td><A HREF="horarios_ver.php?id_clase='.$row["id_clase"].'"><button>ver<br>Horarios</button></A></td>';
 	echo '<td><A HREF="grilla_ingreso.php?id_grilla='.$row["id"].'"><button>Agregar<br>precio</button></A></td>';
 	echo '<td><A HREF="grilla_ingreso.php?id_grilla='.$row["id"].'"><button>Modificar</button></A></td>';
 	echo '<td><A HREF="grilla_eliminar.php?id_grilla='.$row["id"].'"><button>Eliminar</button></A></td>';
@@ -51,30 +52,6 @@ while($row=mysql_fetch_array($result)){
 
 
 
-function dia_semana($num){
-	if($num==1){
-		return "Lunes";
-	}
-	if($num==2){
-		return "Martes";
-	}
-	if($num==3){
-		return "Miercoles";
-	}
-	if($num==4){
-		return "Jueves";
-	}
-	if($num==5){
-		return "Viernes";
-	}
-	if($num==6){
-		return "Sabado";
-	}
-	if($num==7){
-		return "Domingo";
-	}
-
-}
 
 
 
